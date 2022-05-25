@@ -1,3 +1,7 @@
+import imp
+
+
+import random
 # Global Variables
 board = {
     1:" ", 2: " " , 3: " ",
@@ -97,10 +101,12 @@ def secondPlayerMove ():
 
 # DUMMY Bot
 def botMoveDummy ():
-    for key in board.keys():
-        if(board[key] == " "):
-            play(bot , key)
-            return
+    n = random.randint(1,9)
+    if(board[n] == " "):
+        play(bot , n)
+    else:
+        botMoveDummy()
+    return
 
 # Intelligent Bot
 def botMove ():
@@ -154,7 +160,7 @@ def minimax(board , depth , isMaximizing):
 print("----------------------------------------------")
 print("🤖 Hello Let's Play Tic-Tac-Toe Game Together 🤖")
 print("----------------------------------------------")
-print("1. Play with a Dummy Bot 💩 \n2. Play with an Intelligent Bot 🦾 \n3. Two Players 🤝")
+print("1. Play with a Dummy Bot 💩 \n2. Play with an Intelligent Bot 🦾🤖 \n3. Two Players 🤝")
 choice = int(input())
 print("----------------------------------------------")
 
@@ -168,3 +174,4 @@ if(choice):
         elif choice == 2: botMove()
         else: secondPlayerMove()
         playerMove()
+
