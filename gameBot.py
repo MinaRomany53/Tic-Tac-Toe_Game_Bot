@@ -1,6 +1,3 @@
-import imp
-
-
 import random
 # Global Variables
 board = {
@@ -71,7 +68,7 @@ def play (symbol,position):
         play(symbol,position) 
         return
     else:
-        board[position] = symbol
+        board[position] = symbol #GUI
         printBoard (board , False)
         if isDraw(): 
             print("Draw 🚩 \n")
